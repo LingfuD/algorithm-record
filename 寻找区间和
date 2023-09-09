@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int nums[100000];
+	int n;
+	cin >> n;
+	for(int i=0;i<n;++i)
+		cin>>nums[i];
+	int target1, left = 0, right = -1, sum = 0;
+	cin >> target1;
+	while(right < n){
+		if(sum == target1){
+			cout << left << " " << right << endl;
+			sum -= nums[left++];
+		}
+		else if(sum > target1)
+			sum -= nums[left++];
+		else if(sum < target1)
+			sum += nums[++right];
+	}
+	return 0;
+} 
